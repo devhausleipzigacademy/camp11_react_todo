@@ -3,6 +3,7 @@ import Aside from "./components/Aside";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
 import Main from "./components/Main";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +18,7 @@ function App() {
       <Header navItems={navItems} onOpenHandler={setIsOpen} />
       {isOpen && <Aside navItems={navItems} onCloseHandler={setIsOpen} />}
       <Main>
-        <h1>hello world</h1>
-        <p>Here is my main content!</p>
+        <TodoList />
       </Main>
       <Footer />
     </>
