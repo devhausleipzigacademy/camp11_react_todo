@@ -1,6 +1,6 @@
 import { cn } from "../../utils/utils";
 
-type TodoItem = {
+export type TodoItem = {
   id: number;
   imgUrl: string;
   title: string;
