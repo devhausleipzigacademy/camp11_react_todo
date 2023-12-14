@@ -35,7 +35,11 @@ function TodoList() {
           <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
-      <TodoForm />
+      <TodoForm
+        onUpdateTodo={(todo) => {
+          setTodos([...todos, todo]);
+        }}
+      />
     </div>
   );
 }
