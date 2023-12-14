@@ -1,4 +1,4 @@
-import React from "react";
+import TodoItem from "./TodoItem";
 
 function TodoList() {
   const todos = [
@@ -36,7 +36,11 @@ function TodoList() {
     <div className="bg-emerald-100 rounded-md py-6 px-4 shadow-sm">
       <h1 className="text-neutral-700 font-bold text-4xl">Todo List:</h1>
       <hr className="my-4 border-white" />
-      <ul></ul>
+      <ul className="flex flex-col gap-2">
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
+      </ul>
     </div>
   );
 }

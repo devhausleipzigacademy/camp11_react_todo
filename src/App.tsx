@@ -3,7 +3,7 @@ import Aside from "./components/Aside";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
 import Main from "./components/Main";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/todos/TodoList";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
