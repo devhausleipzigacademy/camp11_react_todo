@@ -2,27 +2,23 @@ import { useEffect, useState } from "react";
 import TodoItem, { type TodoItem as TodoItemType } from "./TodoItem";
 import axios from "axios";
 import TodoForm from "./TodoForm";
+import { useQuery } from "../../hooks/useQuery";
 
 function TodoList() {
   //fetch all Todos from db json server
   // loop through all todos and render TodoItem component
+  const { data, error, isError, isLoading } = useQuery<TodoItemType[]>(
+    "http://localhost:3000/todos"
+  );
+  console.log({ data, error, isError, isLoading });
+
   const [todos, setTodos] = useState<TodoItemType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get<TodoItemType[]>("http://localhost:3000/todos")
-      .then((res) => {
-        setTodos(res.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-
-        setError(err.message);
-      });
-  }, []);
+    if (data) {
+      setTodos(data);
+    }
+  }, [data]);
 
   return (
     <div className="bg-emerald-100 rounded-md py-6 px-4 shadow-sm">
