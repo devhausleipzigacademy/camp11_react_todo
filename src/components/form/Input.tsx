@@ -1,17 +1,16 @@
 import React from "react";
 
-interface Props {
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+
+interface Props extends InputProps {
   label: string;
-  type: string;
-  value: string;
-  onHandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({ label, value, onHandleChange, ...props }: Props) {
+function Input({ label, ...props }: Props) {
   return (
     <label>
       {label}
-      <input {...props} value={value} onChange={(e) => onHandleChange(e)} />
+      <input {...props} />
     </label>
   );
 }

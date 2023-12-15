@@ -30,19 +30,19 @@ function TodoForm({ onUpdateTodo }: Props) {
         label="Todo Title:"
         type="text"
         value={form.title}
-        onHandleChange={(e) => setForm({ ...form, title: e.target.value })}
+        onChange={(e) => setForm({ ...form, title: e.target.value })}
       />
       <Input
         label="End date:"
         type="date"
         value={form.date}
-        onHandleChange={(e) => setForm({ ...form, date: e.target.value })}
+        onChange={(e) => setForm({ ...form, date: e.target.value })}
       />
       <Input
         label="Image Url:"
         type="text"
         value={form.imgUrl}
-        onHandleChange={(e) => setForm({ ...form, imgUrl: e.target.value })}
+        onChange={(e) => setForm({ ...form, imgUrl: e.target.value })}
       />
       <button type="submit">submit</button>
     </form>
